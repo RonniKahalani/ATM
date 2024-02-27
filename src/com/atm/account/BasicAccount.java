@@ -1,18 +1,24 @@
 package com.atm.account;
 
-import com.atm.customer.BasicCustomer;
+import com.atm.customer.Customer;
 
+/**
+ * Basic Account Implementation.
+ */
 public class BasicAccount implements Account {
-    private BasicCustomer owner;
+    private Customer owner;
     private double balance;
 
-    public BasicAccount(BasicCustomer owner, double balance) {
+    public BasicAccount(Customer owner, double balance) {
         this.owner = owner;
         this.balance = balance;
     }
 
+    /**
+     * @see com.atm.customer.Customer
+     */
     @Override
-    public BasicCustomer getOwner() {
+    public Customer getOwner() {
         return owner;
     }
 

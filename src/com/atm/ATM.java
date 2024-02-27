@@ -14,6 +14,9 @@ import com.atm.transaction.TransactionProcessor;
 
 import java.util.Scanner;
 
+/**
+ * Automated Teller Machine Simulator.
+ */
 public class ATM {
 
     private static final String TXT_QUIT = "q";
@@ -25,6 +28,11 @@ public class ATM {
     private static final String MSG_QUIT_RECEIVED = "ATM quit received";
 
 
+    /**
+     * Main entry point.
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         // Instantiate components
         CardReader cardReader = new BasicCardReader();
@@ -63,12 +71,10 @@ public class ATM {
                 } else {
                     System.out.println(ERR_INVALID_CARD);
                 }
-
             } else {
                 quit = true;
                 System.out.println(MSG_QUIT_RECEIVED);
             }
         }
     }
-
 }

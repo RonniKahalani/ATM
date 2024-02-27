@@ -13,7 +13,6 @@ public class BasicCardReader implements CardReader {
         put("9876543210987654", new BasicCard( "9876543210987654", "4321", new BasicAccount(new BasicCustomer("Jane", "", "Smith"), 2000.0)));
     }};
 
-    @Override
     public Card validateCard(String cardNumber) {
         if (cardNumber != null && validCards.containsKey(cardNumber)) {
             return validCards.get(cardNumber);
