@@ -3,7 +3,7 @@ package com.atm.transaction;
 import com.atm.account.Account;
 
 public class BasicTransactionProcessor implements TransactionProcessor {
-    @Override
+
     public void processTransaction(Account account, double amount) {
         if (account != null) {
             if (account.withdraw(amount)) {
