@@ -1,5 +1,10 @@
 package com.atm.security;
 
-public interface SecuritySystem {
-    boolean authenticate(String correctPin, String pin);
+public class SecuritySystem implements ISecuritySystem {
+
+    @Override
+    public boolean authenticate(String correctPin, String pin) {
+        // Basic authentication logic
+        return correctPin.equals(pin);
+    }
 }

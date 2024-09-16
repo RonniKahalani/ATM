@@ -1,16 +1,15 @@
 package com.atm;
 
-import com.atm.account.Account;
-import com.atm.card.BasicCardReader;
-import com.atm.card.BasicCard;
-import com.atm.card.Card;
+import com.atm.account.IAccount;
 import com.atm.card.CardReader;
-import com.atm.dispenser.BasicCashDispenser;
+import com.atm.card.ICard;
+import com.atm.card.ICardReader;
 import com.atm.dispenser.CashDispenser;
-import com.atm.security.BasicSecuritySystem;
+import com.atm.dispenser.ICashDispenser;
 import com.atm.security.SecuritySystem;
-import com.atm.transaction.BasicTransactionProcessor;
+import com.atm.security.ISecuritySystem;
 import com.atm.transaction.TransactionProcessor;
+import com.atm.transaction.ITransactionProcessor;
 
 import java.util.Scanner;
 
@@ -35,10 +34,10 @@ public class ATM {
      */
     public static void main(String[] args) {
         // Instantiate components
-        CardReader cardReader = new BasicCardReader();
-        TransactionProcessor transactionProcessor = new BasicTransactionProcessor();
-        CashDispenser cashDispenser = new BasicCashDispenser();
-        SecuritySystem securitySystem = new BasicSecuritySystem();
+        ICardReader cardReader = new CardReader();
+        ITransactionProcessor transactionProcessor = new TransactionProcessor();
+        ICashDispenser cashDispenser = new CashDispenser();
+        ISecuritySystem securitySystem = new SecuritySystem();
 
         // Simulate ATM operations
         boolean quit = false;
@@ -55,9 +54,9 @@ public class ATM {
                 System.out.println(MSG_INPUT_PINCODE);
                 String pinCode = scanner.next();
 
-                Card card = cardReader.validateCard(cardNumber);
+                ICard card = cardReader.validateCard(cardNumber);
                 if (card != null) {
-                    Account account = card.getAccount();
+                    IAccount account = card.getAccount();
                     if (securitySystem.authenticate(card.getPin(), pinCode)) {
 
                         System.out.println(MSG_INPUT_AMOUNT);

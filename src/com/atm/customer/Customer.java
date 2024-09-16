@@ -1,17 +1,50 @@
 package com.atm.customer;
 
-public interface Customer {
-    public String getFullName();
-    public String getFirstName();
+public class Customer implements ICustomer {
+    String firstName;
+    String middleName;
+    String lastName;
 
-    public void setFirstName(String firstName);
+    public Customer(String firstName, String middleName, String lastName) {
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+    }
 
-    public String getMiddleName();
+    public String getFullName(){
+        return getFirstName() + (!getMiddleName().isEmpty() ? getMiddleName() : "") + " " + getLastName();
+    }
 
-    public void setMiddleName(String middleName);
+    public String getFirstName() {
+        return firstName;
+    }
 
-    public String getLastName();
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-    public void setLastName(String lastName);
+    public String getMiddleName() {
+        return middleName;
+    }
 
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "firstName='" + firstName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
 }
