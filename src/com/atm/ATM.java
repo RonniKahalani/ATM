@@ -21,7 +21,7 @@ public class ATM {
     private static final String TXT_QUIT = "q";
     private static final String MSG_INPUT_CARDNUMBER = "Input card number (q=quit): ";
     private static final String MSG_INPUT_PINCODE = "Input pin code: ";
-    private static final String MSG_INPUT_AMOUNT = "Input amount: ";
+    private static final String MSG_INPUT_AMOUNT = "Input amount ($): ";
     private static final String ERR_AUTHENTICATION = "Authentication failed. Please try again.";
     private static final String ERR_INVALID_CARD = "Invalid card. Please try again.";
     private static final String MSG_QUIT_RECEIVED = "ATM quit received";
